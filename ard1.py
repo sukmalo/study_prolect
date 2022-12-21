@@ -20,7 +20,7 @@ def send(ser,message, mesg_len):
 if name == 'main':
     ser = get_connection("COM12")
     while True:
-        print("Enter command: \nu - on, \nd - off, \nauto - on/off for resistor, \nrec - on data, \nb - more bright")      
+        print("Enter command: \nu - on, \nd - off, \nauto - on/off for resistor, \nb - more bright")      
         inp = input()
         if inp == "u" or inp == "d" :
             send(ser, inp.encode(), lenghts[inp])
@@ -35,13 +35,7 @@ if name == 'main':
                         send(ser, 'd'.encode(), 0)
                     else:
                         send(ser, 'u'.encode(), 0)
-        elif inp == "rec":
-            while True: 
-                com = "s"
-                val = send(ser, com.encode(), lenghts[com])
-                if val:
-                    values.append(val)
-                print (values)
+        
         elif inp == "b":
             while True: 
                 com = "s"
