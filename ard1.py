@@ -35,6 +35,14 @@ if name == 'main':
                         send(ser, 'd'.encode(), 0)
                     else:
                         send(ser, 'u'.encode(), 0)
+                        
+        elif inp == "rec":
+            while True: 
+                com = "s"
+                val = send(ser, com.encode(), lenghts[com])
+                if val:
+                    values.append(val)
+                print (values)
         
         elif inp == "b":
             while True: 
